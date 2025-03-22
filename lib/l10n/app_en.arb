@@ -1,0 +1,10 @@
+{
+    "@@locale": "en",
+    "learn": "Learn",
+    "quiz": "Quiz",
+    "settings": "Settings", 
+    "language": "Language",
+    "changeLanguage": "Change Language", 
+    "aboutApp": "About App", 
+    "currentVersion": "Current Version"
+}

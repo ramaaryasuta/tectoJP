@@ -1,0 +1,10 @@
+{
+    "@@locale": "ja",
+    "learn": "学習",
+    "quiz": "クイズ",
+    "settings": "設定", 
+    "language": "言語", 
+    "changeLanguage": "言語を変更", 
+    "aboutApp": "アプリ情報",
+    "currentVersion": "現在のバージョン"
+}

@@ -1,0 +1,10 @@
+{
+    "@@locale": "id",
+    "learn": "Belajar",
+    "quiz": "Kuiz",
+    "settings": "Pengaturan", 
+    "language": "Bahasa", 
+    "changeLanguage": "Ganti Bahasa",
+    "aboutApp": "Tentang Aplikasi",
+    "currentVersion": "Versi Saat Ini"
+}
