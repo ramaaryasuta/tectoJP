@@ -8,5 +8,13 @@
     "aboutApp": "アプリ情報",
     "currentVersion": "現在のバージョン", 
     "chooseType": "タイプを選択",
-    "combination": "組み合わせ"
+    "combination": "組み合わせ", 
+    "all": "全て",
+    "yourAnswerCorrect": "正解です",
+    "yourAnswerWrong": "不正解です",
+    "result": "結果",
+    "timeYouFinishAllQuestion": "問題を全て解くまでの時間",
+    "timeYouFinishWithCorrectAnswer": "正解したまでの時間",
+    "backToHome": "ホームに戻る",
+    "typeHere": "ここに入力..."
 }

@@ -15,14 +15,14 @@ class QuizScreen extends StatelessWidget {
             title: 'Hiragana',
             subtitle: 'あいうえお',
             onTap: () {
-              openChooseQuiz(context);
+              openKanaChooseQuiz(context);
             },
           ),
           QuizTile(
             title: 'Katakana',
             subtitle: 'アイウエオ',
             onTap: () {
-              openChooseQuiz(context, isHiragana: false);
+              openKanaChooseQuiz(context, isHiragana: false);
             },
           ),
         ],

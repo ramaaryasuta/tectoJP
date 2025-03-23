@@ -1,14 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tectojp/features/quiz/data/datasource/remote_datasource.dart';
+import 'package:tectojp/features/quiz/data/datasource/hiragana_datasource.dart';
 import 'package:tectojp/features/quiz/data/models/quiz_model.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  late QuizRemoteDataSourceImpl dataSource;
+  late HiraganaDataSource dataSource;
 
   setUp(() {
-    dataSource = QuizRemoteDataSourceImpl();
+    dataSource = HiraganaDataSourceImpl();
   });
 
   test('Should load and parse [main_hiragana] JSON correctly', () async {

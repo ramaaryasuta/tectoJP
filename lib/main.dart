@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:tectojp/features/home/presentation/cubit/homepage_cubit.dart';
 
 import 'features/home/presentation/cubit/locale_cubit.dart';
+import 'features/quiz/presentation/cubit/quiz_cubit.dart';
+import 'injection.dart';
 import 'router/app_router.dart';
 
 void main() {
@@ -16,10 +17,12 @@ void main() {
 
     GetIt.instance.registerSingleton<AppRouter>(AppRouter());
 
+    await initInjection();
+
     runApp(MultiBlocProvider(
       providers: [
-        BlocProvider<LocaleCubit>(create: (context) => LocaleCubit()),
-        BlocProvider<HomepageCubit>(create: (context) => HomepageCubit()),
+        BlocProvider(create: (_) => myInjection<LocaleCubit>()),
+        BlocProvider(create: (_) => myInjection<QuizCubit>()),
       ],
       child: MyApp(),
     ));

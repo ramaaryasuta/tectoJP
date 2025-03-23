@@ -8,5 +8,13 @@
     "aboutApp": "Tentang Aplikasi",
     "currentVersion": "Versi Saat Ini",
     "chooseType": "Pilih Tipe",
-    "combination": "Kombinasi"
+    "combination": "Kombinasi", 
+    "all": "Semua",
+    "yourAnswerCorrect": "Jawabanmu benar",
+    "yourAnswerWrong": "Jawabanmu salah",
+    "result": "Hasil",
+    "timeYouFinishAllQuestion": "Waktu kamu menyelesaikan semua pertanyaan",
+    "timeYouFinishWithCorrectAnswer": "Waktu kamu menyelesaikan dengan jawaban benar",
+    "backToHome": "Kembali ke Beranda", 
+    "typeHere": "Ketik disini..."
 }

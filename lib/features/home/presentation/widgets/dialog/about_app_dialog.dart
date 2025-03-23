@@ -17,7 +17,6 @@ void openAboutDialog(String version) {
                 .titleMedium!
                 .copyWith(fontWeight: FontWeight.bold)),
         Text("${S.of(context)!.currentVersion} : $version"),
-        const Text("Aplikasi ngide aja ini bang, nanti desc nya diganti")
       ],
     ),
   );

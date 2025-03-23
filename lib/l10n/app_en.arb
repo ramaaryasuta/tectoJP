@@ -8,5 +8,13 @@
     "aboutApp": "About App", 
     "currentVersion": "Current Version", 
     "chooseType": "Choose Type",
-    "combination": "Combination"
+    "combination": "Combination",
+    "all": "All",
+    "yourAnswerCorrect": "Your answer is correct",
+    "yourAnswerWrong": "Your answer is wrong",
+    "result": "Result",
+    "timeYouFinishAllQuestion": "Time you finish all question",
+    "timeYouFinishWithCorrectAnswer": "Time you finish with correct answer", 
+    "backToHome": "Back to Home",
+    "typeHere": "Type here..."
 }
