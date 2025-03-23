@@ -9,8 +9,10 @@ class QuizTile extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.isLocal = true,
   });
 
+  final bool isLocal;
   final String title;
   final String subtitle;
   final void Function()? onTap;
@@ -21,6 +23,17 @@ class QuizTile extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       child: ListTile(
         onTap: onTap,
+        leading: CircleAvatar(
+          child: Padding(
+            padding: const EdgeInsets.all(2),
+            child: Text(
+              isLocal ? S.of(context)!.local : S.of(context)!.online,
+              style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                    color: isLocal ? Colors.deepOrangeAccent : Colors.green,
+                  ),
+            ),
+          ),
+        ),
         title: Text('$title ${S.of(context)!.quiz}',
             style: Theme.of(context).textTheme.titleSmall),
         subtitle: Text(subtitle,

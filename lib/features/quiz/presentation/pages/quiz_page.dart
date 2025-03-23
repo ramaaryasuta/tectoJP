@@ -10,6 +10,7 @@ import '../../../../core/utils/fonts.dart';
 import '../../domain/entities/quiz.dart';
 import '../cubit/quiz_cubit.dart';
 import '../widgets/result_dialog.dart';
+import '../widgets/warning_dialog.dart';
 
 @RoutePage()
 class QuizPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _QuizPageState extends State<QuizPage> {
   late QuizCubit cubit;
   final _pageController = PageController();
   final _answerController = TextEditingController();
+  final FocusNode _answerFocusNode = FocusNode();
 
   int _currentQuizIndex = 0;
   int _totalQuiz = 0;
@@ -62,6 +64,7 @@ class _QuizPageState extends State<QuizPage> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       cubit.kanaShuffleRandomQuiz(
           quizType: widget.quizType, kanaType: widget.kanaType);
+      startTimer();
     });
   }
 
@@ -69,6 +72,7 @@ class _QuizPageState extends State<QuizPage> {
   void dispose() {
     _pageController.dispose();
     _answerController.dispose();
+    _answerFocusNode.dispose();
     super.dispose();
   }
 
@@ -76,6 +80,38 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                    title: Text(S.of(context)!.exitQuiz),
+                    content: Text(S.of(context)!.areYouSure),
+                    actions: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(S.of(context)!.no),
+                            ),
+                          ),
+                          Expanded(
+                            child: TextButton(
+                              onPressed: () {
+                                context.router.back();
+                              },
+                              child: Text(S.of(context)!.yes),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+              );
+            }),
         title: Text(
             '${S.of(context)!.quiz} ${_startWrongAnswerState ? "Review" : ""}'),
       ),
@@ -125,6 +161,7 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                     TextField(
                       controller: _answerController,
+                      focusNode: _answerFocusNode,
                       decoration: InputDecoration(
                         hintText: S.of(context)!.typeHere,
                         border: OutlineInputBorder(
@@ -134,7 +171,8 @@ class _QuizPageState extends State<QuizPage> {
                       onSubmitted: (v) {
                         ScaffoldMessenger.of(context).removeCurrentSnackBar();
 
-                        if (v == quizData[_currentQuizIndex].romanji) {
+                        if (v.toLowerCase() ==
+                            quizData[_currentQuizIndex].romanji.toLowerCase()) {
                           // Jawaban benar
                           if (!_startWrongAnswerState) {
                             _correctAnswer++;
@@ -156,6 +194,7 @@ class _QuizPageState extends State<QuizPage> {
                         }
 
                         _answerController.clear();
+                        FocusScope.of(context).requestFocus(_answerFocusNode);
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut,
@@ -163,8 +202,8 @@ class _QuizPageState extends State<QuizPage> {
 
                         if (_pageController.page == _totalQuiz - 1 &&
                             _repeatQuiz.isNotEmpty) {
+                          showWarning(_repeatQuiz.length.toString());
                           _startWrongAnswerState = true;
-
                           _pageController.jumpToPage(0);
                         } else if (_pageController.page == _totalQuiz - 1 &&
                             _startWrongAnswerState &&

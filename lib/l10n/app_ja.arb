@@ -16,5 +16,14 @@
     "timeYouFinishAllQuestion": "問題を全て解くまでの時間",
     "timeYouFinishWithCorrectAnswer": "正解したまでの時間",
     "backToHome": "ホームに戻る",
-    "typeHere": "ここに入力..."
+    "typeHere": "ここに入力...", 
+    "letsgo": "始める", 
+    "incorrectAnswer": "不正解", 
+    "letsFixYourAnswer": "不正解を修正",
+    "yes": "はい",
+    "no": "いいえ",
+    "exitQuiz": "クイズを終了",
+    "areYouSure": "クイズを終了しますか?進捗は失われます", 
+    "local": "ローカル",
+    "online": "オンライン"
 }

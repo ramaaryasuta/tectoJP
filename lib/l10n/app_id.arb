@@ -1,7 +1,7 @@
 {
     "@@locale": "id",
     "learn": "Belajar",
-    "quiz": "Kuiz",
+    "quiz": "Kuis",
     "settings": "Pengaturan", 
     "language": "Bahasa", 
     "changeLanguage": "Ganti Bahasa",
@@ -16,5 +16,14 @@
     "timeYouFinishAllQuestion": "Waktu kamu menyelesaikan semua pertanyaan",
     "timeYouFinishWithCorrectAnswer": "Waktu kamu menyelesaikan dengan jawaban benar",
     "backToHome": "Kembali ke Beranda", 
-    "typeHere": "Ketik disini..."
+    "typeHere": "Ketik disini...",
+    "letsgo": "Lanjutkan", 
+    "incorrectAnswer": "Jawaban salah", 
+    "letsFixYourAnswer": "Perbaiki jawabanmu",
+    "yes": "Ya",
+    "no": "Tidak",
+    "exitQuiz": "Keluar Kuis",
+    "areYouSure": "Apakah kamu yakin ingin keluar ? progress kamu akan hilang",
+    "local": "Lokal",
+    "online": "Online"
 }

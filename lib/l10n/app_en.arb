@@ -16,5 +16,14 @@
     "timeYouFinishAllQuestion": "Time you finish all question",
     "timeYouFinishWithCorrectAnswer": "Time you finish with correct answer", 
     "backToHome": "Back to Home",
-    "typeHere": "Type here..."
+    "typeHere": "Type here...", 
+    "letsgo": "Let's go",
+    "incorrectAnswer": "Incorrect answer", 
+    "letsFixYourAnswer": "Let's fix your answer",
+    "yes": "Yes",
+    "no": "No",
+    "exitQuiz": "Exit Quiz",
+    "areYouSure": "Are you sure want to exit ? your progress will be lost",
+    "local": "Local", 
+    "online": "Online"
 }
