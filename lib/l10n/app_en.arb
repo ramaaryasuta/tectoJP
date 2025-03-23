@@ -25,5 +25,7 @@
     "exitQuiz": "Exit Quiz",
     "areYouSure": "Are you sure want to exit ? your progress will be lost",
     "local": "Local", 
-    "online": "Online"
+    "online": "Online",
+    "answer": "Answer", 
+    "accuracy": "Accuracy"
 }

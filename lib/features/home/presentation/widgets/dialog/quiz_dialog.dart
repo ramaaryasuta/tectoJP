@@ -72,6 +72,7 @@ class TileTypeQuiz extends StatelessWidget {
           QuizRoute(kanaType: kanaType, quizType: quizType),
         );
       },
+      tileColor: Colors.grey[300],
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       title: Text(title,
           style: Theme.of(globalCurrentContext).textTheme.bodyMedium),

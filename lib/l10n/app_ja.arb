@@ -25,5 +25,7 @@
     "exitQuiz": "クイズを終了",
     "areYouSure": "クイズを終了しますか?進捗は失われます", 
     "local": "ローカル",
-    "online": "オンライン"
+    "online": "オンライン", 
+    "answer": "答え", 
+    "accuracy": "正答率"
 }

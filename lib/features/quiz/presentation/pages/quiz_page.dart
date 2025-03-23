@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tectojp/core/helper/ui_helper.dart';
 
 import '../../../../core/components/snackbar.dart';
 import '../../../../core/helper/subtitle_helper.dart';
@@ -114,6 +115,15 @@ class _QuizPageState extends State<QuizPage> {
             }),
         title: Text(
             '${S.of(context)!.quiz} ${_startWrongAnswerState ? "Review" : ""}'),
+        actions: [
+          Container(
+            padding: const EdgeInsets.all(20),
+            alignment: Alignment.center,
+            child: Text(
+              "${_minutes.toString().padLeft(2, '0')}:${_seconds.toString().padLeft(2, '0')}",
+            ),
+          ),
+        ],
       ),
       body: BlocBuilder<QuizCubit, QuizState>(
         builder: (context, state) {
@@ -141,21 +151,44 @@ class _QuizPageState extends State<QuizPage> {
                           itemCount: quizData.length,
                           itemBuilder: (context, index) {
                             _currentQuizIndex = index;
-                            return Card(
-                              child: Center(
-                                child: Text(
-                                  quizData[index].title,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineLarge!
-                                      .copyWith(
-                                        fontFamily: MyFonts.notoSansJp,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                .4,
-                                      ),
+                            return Stack(
+                              children: [
+                                Card(
+                                  child: Center(
+                                    child: Text(
+                                      quizData[index].title,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineLarge!
+                                          .copyWith(
+                                              fontFamily: MyFonts.notoSansJp,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  .4),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                      maxHeight: getDeviceHeight(context) * .1,
+                                      maxWidth: getDeviceWidth(context) * .3,
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      '${index + 1} / ${quizData.length}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleLarge!
+                                          .copyWith(
+                                              fontFamily: MyFonts.notoSansJp),
+                                    ),
+                                  ),
+                                )
+                              ],
                             );
                           }),
                     ),
@@ -164,6 +197,7 @@ class _QuizPageState extends State<QuizPage> {
                       focusNode: _answerFocusNode,
                       decoration: InputDecoration(
                         hintText: S.of(context)!.typeHere,
+                        label: Text(S.of(context)!.answer),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -202,6 +236,7 @@ class _QuizPageState extends State<QuizPage> {
 
                         if (_pageController.page == _totalQuiz - 1 &&
                             _repeatQuiz.isNotEmpty) {
+                          // warning dialog wrong answer
                           showWarning(_repeatQuiz.length.toString());
                           _startWrongAnswerState = true;
                           _pageController.jumpToPage(0);
@@ -218,7 +253,7 @@ class _QuizPageState extends State<QuizPage> {
 
                           showResultQuiz(
                             score:
-                                '$_correctAnswer/${state.quizes.length} (${(_correctAnswer / state.quizes.length) * 100}%)',
+                                '$_correctAnswer/${state.quizes.length} (${S.of(context)!.accuracy} ${((_correctAnswer / state.quizes.length) * 100).toStringAsFixed(2)}%)',
                             finishTime:
                                 '${_minutes < 10 ? "0$_minutes" : "$_minutes"} : ${_seconds < 10 ? "0$_seconds" : "$_seconds"}',
                           );

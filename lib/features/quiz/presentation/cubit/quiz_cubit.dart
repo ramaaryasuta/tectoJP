@@ -74,7 +74,7 @@ class QuizCubit extends Cubit<QuizState> {
       }
 
       quizActive = List.from(quizzes)..shuffle();
-      quizActive = quizActive.take(quizType == QuizType.all ? 60 : 40).toList();
+      quizActive = quizActive.take(quizType == QuizType.all ? 50 : 30).toList();
 
       emit(QuizLoaded(quizActive));
     } catch (e, stackTrace) {

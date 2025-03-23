@@ -25,5 +25,7 @@
     "exitQuiz": "Keluar Kuis",
     "areYouSure": "Apakah kamu yakin ingin keluar ? progress kamu akan hilang",
     "local": "Lokal",
-    "online": "Online"
+    "online": "Online", 
+    "answer": "Jawaban", 
+    "accuracy": "Akurasi"
 }
