@@ -69,13 +69,13 @@ class _QuizPageState extends State<QuizPage> {
     });
   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    _answerController.dispose();
-    _answerFocusNode.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _pageController.dispose();
+  //   _answerController.dispose();
+  //   _answerFocusNode.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
