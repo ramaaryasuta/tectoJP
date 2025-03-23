@@ -6,5 +6,7 @@
     "language": "Language",
     "changeLanguage": "Change Language", 
     "aboutApp": "About App", 
-    "currentVersion": "Current Version"
+    "currentVersion": "Current Version", 
+    "chooseType": "Choose Type",
+    "combination": "Combination"
 }

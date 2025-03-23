@@ -6,5 +6,7 @@
     "language": "Bahasa", 
     "changeLanguage": "Ganti Bahasa",
     "aboutApp": "Tentang Aplikasi",
-    "currentVersion": "Versi Saat Ini"
+    "currentVersion": "Versi Saat Ini",
+    "chooseType": "Pilih Tipe",
+    "combination": "Kombinasi"
 }

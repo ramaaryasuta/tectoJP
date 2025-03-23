@@ -38,6 +38,8 @@ void changeLanguageDialog(BuildContext context) {
               ),
               child: ListTile(
                 tileColor: isActive ? Colors.blue : null,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 title: Text(
                     "${language[index]['name']} (${locale.languageCode})",
                     style: Theme.of(context)

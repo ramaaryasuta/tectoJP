@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/helper/subtitle_helper.dart';
-import '../../../../core/utils/fonts.dart';
+import '../widgets/dialog/quiz_dialog.dart';
+import '../widgets/quiz_tile.dart';
 
 class QuizScreen extends StatelessWidget {
   const QuizScreen({super.key});
@@ -11,18 +11,20 @@ class QuizScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Card(
-            margin: const EdgeInsets.all(10),
-            child: ListTile(
-              title: Text('Hiragana ${S.of(context)!.quiz}',
-                  style: Theme.of(context).textTheme.titleSmall),
-              subtitle: Text('あいうえお',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontFamily: MyFonts.notoSansJp,
-                      )),
-              trailing: const Icon(Icons.timer_sharp),
-            ),
-          )
+          QuizTile(
+            title: 'Hiragana',
+            subtitle: 'あいうえお',
+            onTap: () {
+              openChooseQuiz(context);
+            },
+          ),
+          QuizTile(
+            title: 'Katakana',
+            subtitle: 'アイウエオ',
+            onTap: () {
+              openChooseQuiz(context, isHiragana: false);
+            },
+          ),
         ],
       ),
     );

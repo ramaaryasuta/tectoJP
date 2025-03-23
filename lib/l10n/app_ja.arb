@@ -6,5 +6,7 @@
     "language": "言語", 
     "changeLanguage": "言語を変更", 
     "aboutApp": "アプリ情報",
-    "currentVersion": "現在のバージョン"
+    "currentVersion": "現在のバージョン", 
+    "chooseType": "タイプを選択",
+    "combination": "組み合わせ"
 }

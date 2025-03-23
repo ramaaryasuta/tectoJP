@@ -6,7 +6,11 @@ class LearnScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Learn'),
+      child: Text(
+        'Learn Flash Card \n Nunggu mas Ega ini mah',
+        style: Theme.of(context).textTheme.titleSmall,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

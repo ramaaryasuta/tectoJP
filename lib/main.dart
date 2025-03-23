@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
+import 'package:tectojp/features/home/presentation/cubit/homepage_cubit.dart';
 
 import 'features/home/presentation/cubit/locale_cubit.dart';
 import 'router/app_router.dart';
@@ -11,16 +13,19 @@ import 'router/app_router.dart';
 void main() {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    // register AppRuter in GetIt
+
     GetIt.instance.registerSingleton<AppRouter>(AppRouter());
 
     runApp(MultiBlocProvider(
       providers: [
         BlocProvider<LocaleCubit>(create: (context) => LocaleCubit()),
+        BlocProvider<HomepageCubit>(create: (context) => HomepageCubit()),
       ],
       child: MyApp(),
     ));
-  }, (error, stack) {});
+  }, (error, stack) {
+    log('error runZonedGuarded', error: error, stackTrace: stack);
+  });
 }
 
 class MyApp extends StatelessWidget {
