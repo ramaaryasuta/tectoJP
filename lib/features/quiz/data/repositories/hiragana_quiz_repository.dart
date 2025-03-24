@@ -14,6 +14,8 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
   KanaQuizRepositoryImpl(
       {required this.hiraganaDataSource, required this.katakanaDataSource});
 
+  // handling main kana
+  // return Hiragana or Katakana only based on kanaType (for all func)
   @override
   Future<Either<ErrorState, List<Quiz>>> getMainKana(KanaType kanaType) async {
     try {
@@ -25,7 +27,7 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
         return Right(result);
       }
     } catch (e) {
-      return Left(ErrorState());
+      return Left(ErrorState(msg: 'Error fetching main kana : $e'));
     }
   }
 
@@ -41,7 +43,7 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
         return Right(result);
       }
     } catch (e) {
-      return Left(ErrorState());
+      return Left(ErrorState(msg: 'Error fetching dakuten kana : $e'));
     }
   }
 
@@ -57,7 +59,7 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
         return Right(result);
       }
     } catch (e) {
-      return Left(ErrorState());
+      return Left(ErrorState(msg: 'Error fetching combine kana : $e'));
     }
   }
 }

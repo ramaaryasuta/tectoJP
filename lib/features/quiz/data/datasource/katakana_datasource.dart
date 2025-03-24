@@ -11,12 +11,14 @@ abstract class KatakanaDataSource {
 }
 
 class KatakanaDataSourceImpl implements KatakanaDataSource {
+  // load katakana json
   Future<Map<String, dynamic>> _loadKatakanaJson() async {
     String jsonString =
         await rootBundle.loadString('assets/quiz/katakana_quiz.json');
     return json.decode(jsonString);
   }
 
+  // return list main katakana
   @override
   Future<List<QuizModel>> getMainKana() async {
     Map<String, dynamic> jsonData = await _loadKatakanaJson();
@@ -25,6 +27,7 @@ class KatakanaDataSourceImpl implements KatakanaDataSource {
         .toList();
   }
 
+  // return list dakuten katakana
   @override
   Future<List<QuizModel>> getDakutenKana() async {
     Map<String, dynamic> jsonData = await _loadKatakanaJson();
@@ -33,6 +36,7 @@ class KatakanaDataSourceImpl implements KatakanaDataSource {
         .toList();
   }
 
+  // return list combine katakana
   @override
   Future<List<QuizModel>> getCombineKana() async {
     Map<String, dynamic> jsonData = await _loadKatakanaJson();

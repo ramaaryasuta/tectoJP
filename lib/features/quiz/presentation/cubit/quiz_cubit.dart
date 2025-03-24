@@ -29,6 +29,7 @@ class QuizCubit extends Cubit<QuizState> {
 
   List<Quiz> quizActive = [];
 
+  // func for shuffle kana quiz
   Future<void> kanaShuffleRandomQuiz({
     required QuizType quizType,
     required KanaType kanaType,
@@ -38,7 +39,7 @@ class QuizCubit extends Cubit<QuizState> {
 
       List<Quiz> quizzes = [];
 
-      // Fungsi bantu untuk mengambil data quiz
+      // Function to fetch quiz data by usecase
       Future<void> fetchQuizData(
           Future<Either<ErrorState, List<Quiz>>> Function() useCase) async {
         final result = await useCase();
@@ -48,7 +49,7 @@ class QuizCubit extends Cubit<QuizState> {
         );
       }
 
-      // Tentukan kuis berdasarkan tipe
+      // choose quiz type
       switch (quizType) {
         case QuizType.main:
           await fetchQuizData(() => getMainKanaUseCase.execute(kanaType));
@@ -60,6 +61,7 @@ class QuizCubit extends Cubit<QuizState> {
           await fetchQuizData(() => getCombineKanaUseCase.execute(kanaType));
           break;
         case QuizType.all:
+          // fetch all kana type then add to list
           await Future.wait([
             fetchQuizData(() => getMainKanaUseCase.execute(kanaType)),
             fetchQuizData(() => getDakutenKanaUseCase.execute(kanaType)),
@@ -69,7 +71,7 @@ class QuizCubit extends Cubit<QuizState> {
       }
 
       if (quizzes.isEmpty) {
-        emit(QuizError(ErrorState()));
+        emit(QuizError(ErrorState(msg: 'No quiz data available')));
         return;
       }
 
@@ -79,7 +81,7 @@ class QuizCubit extends Cubit<QuizState> {
       emit(QuizLoaded(quizActive));
     } catch (e, stackTrace) {
       log('Error while shuffleRandomQuiz: $e', stackTrace: stackTrace);
-      emit(QuizError(ErrorState()));
+      emit(QuizError(ErrorState(msg: 'Error while shuffleRandomQuiz')));
     }
   }
 }

@@ -11,12 +11,14 @@ abstract class HiraganaDataSource {
 }
 
 class HiraganaDataSourceImpl implements HiraganaDataSource {
+  // Load local hiragana json
   Future<Map<String, dynamic>> _loadHiraganaJson() async {
     String jsonString =
         await rootBundle.loadString('assets/quiz/hiragana_quiz.json');
     return json.decode(jsonString);
   }
 
+  // return main hiragana only
   @override
   Future<List<QuizModel>> getMainKana() async {
     Map<String, dynamic> jsonData = await _loadHiraganaJson();
@@ -25,6 +27,7 @@ class HiraganaDataSourceImpl implements HiraganaDataSource {
         .toList();
   }
 
+  // return dakuten hiragana only
   @override
   Future<List<QuizModel>> getDakutenKana() async {
     Map<String, dynamic> jsonData = await _loadHiraganaJson();
@@ -33,6 +36,7 @@ class HiraganaDataSourceImpl implements HiraganaDataSource {
         .toList();
   }
 
+  // return combination hiragana only
   @override
   Future<List<QuizModel>> getCombineKana() async {
     Map<String, dynamic> jsonData = await _loadHiraganaJson();
