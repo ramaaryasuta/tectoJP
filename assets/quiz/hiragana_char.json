@@ -47,7 +47,7 @@
         { "kana": "を", "romaji": "wo" },
         { "kana": "ん", "romaji": "n" }
     ], 
-    "dakuten_hiragana": [
+    "dakuon_hiragana": [
         { "kana": "が", "romaji": "ga" },
         { "kana": "ぎ", "romaji": "gi" },
         { "kana": "ぐ", "romaji": "gu" },
