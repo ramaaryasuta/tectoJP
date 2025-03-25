@@ -15,14 +15,12 @@ void main() {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
-    GetIt.instance.registerSingleton<AppRouter>(AppRouter());
-
-    await initInjection();
+    await initAppInjection();
 
     runApp(MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => myInjection<LocaleCubit>()),
-        BlocProvider(create: (_) => myInjection<QuizCubit>()),
+        BlocProvider(create: (_) => appInjection<LocaleCubit>()),
+        BlocProvider(create: (_) => appInjection<QuizCubit>()),
       ],
       child: MyApp(),
     ));
