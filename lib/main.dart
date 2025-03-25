@@ -5,13 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'features/home/presentation/cubit/locale_cubit.dart';
 import 'features/quiz/presentation/cubit/quiz_cubit.dart';
 import 'injection.dart';
 import 'router/app_router.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: '.env');
+
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
