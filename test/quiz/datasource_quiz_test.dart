@@ -24,7 +24,7 @@ void main() {
     });
 
     test('Should load and parse [dakuten_hiragana] JSON correctly', () async {
-      final result = await hiraganaDataSource.getDakutenKana();
+      final result = await hiraganaDataSource.getDakuonKana();
       expect(result.isNotEmpty, true);
     });
 
@@ -45,7 +45,7 @@ void main() {
     });
 
     test('Should load and parse [dakuten_katakana] JSON correctly', () async {
-      final result = await katakanaDataSource.getDakutenKana();
+      final result = await katakanaDataSource.getDakuonKana();
       expect(result.isNotEmpty, true);
     });
 
