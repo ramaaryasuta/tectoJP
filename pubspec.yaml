@@ -38,6 +38,7 @@ flutter:
   generate: true
 
   assets:
+    - .env
     - assets/quiz/
 
   fonts:
