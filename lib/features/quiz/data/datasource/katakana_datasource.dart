@@ -14,7 +14,7 @@ class KatakanaDataSourceImpl implements KatakanaDataSource {
   // load katakana json
   Future<Map<String, dynamic>> _loadKatakanaJson() async {
     String jsonString =
-        await rootBundle.loadString('assets/quiz/katakana_quiz.json');
+        await rootBundle.loadString('assets/quiz/katakana_char.json');
     return json.decode(jsonString);
   }
 

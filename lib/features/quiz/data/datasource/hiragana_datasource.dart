@@ -14,7 +14,7 @@ class HiraganaDataSourceImpl implements HiraganaDataSource {
   // Load local hiragana json
   Future<Map<String, dynamic>> _loadHiraganaJson() async {
     String jsonString =
-        await rootBundle.loadString('assets/quiz/hiragana_quiz.json');
+        await rootBundle.loadString('assets/quiz/hiragana_char.json');
     return json.decode(jsonString);
   }
 
