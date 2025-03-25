@@ -36,10 +36,10 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
       KanaType kanaType) async {
     try {
       if (kanaType == KanaType.hiragana) {
-        List<Quiz> result = await hiraganaDataSource.getMainKana();
+        List<Quiz> result = await hiraganaDataSource.getDakutenKana();
         return Right(result);
       } else {
-        List<Quiz> result = await katakanaDataSource.getMainKana();
+        List<Quiz> result = await katakanaDataSource.getDakutenKana();
         return Right(result);
       }
     } catch (e) {
