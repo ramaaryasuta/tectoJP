@@ -32,14 +32,14 @@ class KanaQuizRepositoryImpl extends KanaQuizRepository {
   }
 
   @override
-  Future<Either<ErrorState, List<Quiz>>> getDakutenKana(
+  Future<Either<ErrorState, List<Quiz>>> getDakuonKana(
       KanaType kanaType) async {
     try {
       if (kanaType == KanaType.hiragana) {
-        List<Quiz> result = await hiraganaDataSource.getDakutenKana();
+        List<Quiz> result = await hiraganaDataSource.getDakuonKana();
         return Right(result);
       } else {
-        List<Quiz> result = await katakanaDataSource.getDakutenKana();
+        List<Quiz> result = await katakanaDataSource.getDakuonKana();
         return Right(result);
       }
     } catch (e) {

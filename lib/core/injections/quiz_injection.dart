@@ -4,9 +4,7 @@ import '../../features/quiz/data/datasource/hiragana_datasource.dart';
 import '../../features/quiz/data/datasource/katakana_datasource.dart';
 import '../../features/quiz/data/repositories/hiragana_quiz_repository.dart';
 import '../../features/quiz/domain/repositories/kana_quiz_repository.dart';
-import '../../features/quiz/domain/usecase/get_combine_kana.dart';
-import '../../features/quiz/domain/usecase/get_dakuten_kana.dart';
-import '../../features/quiz/domain/usecase/get_main_kana.dart';
+import '../../features/quiz/domain/usecase/get_kana.dart';
 import '../../features/quiz/presentation/cubit/quiz_cubit.dart';
 
 void quizInjection(GetIt appInjection) {
@@ -20,7 +18,7 @@ void quizInjection(GetIt appInjection) {
   // Use Case
   appInjection.registerFactory<GetMainKana>(() => GetMainKana(appInjection()));
   appInjection
-      .registerFactory<GetDakutenKana>(() => GetDakutenKana(appInjection()));
+      .registerFactory<GetDakuonKana>(() => GetDakuonKana(appInjection()));
   appInjection
       .registerFactory<GetCombineKana>(() => GetCombineKana(appInjection()));
 

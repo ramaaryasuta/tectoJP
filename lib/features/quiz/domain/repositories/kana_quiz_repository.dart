@@ -6,6 +6,6 @@ import '../entities/quiz.dart';
 
 abstract class KanaQuizRepository {
   Future<Either<ErrorState, List<Quiz>>> getMainKana(KanaType kanaType);
-  Future<Either<ErrorState, List<Quiz>>> getDakutenKana(KanaType kanaType);
+  Future<Either<ErrorState, List<Quiz>>> getDakuonKana(KanaType kanaType);
   Future<Either<ErrorState, List<Quiz>>> getCombineKana(KanaType kanaType);
 }

@@ -27,7 +27,7 @@ void openKanaChooseQuiz(BuildContext context, {bool isHiragana = true}) {
           quizType: QuizType.main,
         ),
         TileTypeQuiz(
-          title: "Dakuten $title",
+          title: "Dakuon $title",
           trailing: isHiragana ? "が" : "ガ",
           kanaType: isHiragana ? KanaType.hiragana : KanaType.katakana,
           quizType: QuizType.dakuten,

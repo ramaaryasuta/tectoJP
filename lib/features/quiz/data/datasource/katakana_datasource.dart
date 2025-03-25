@@ -6,7 +6,7 @@ import '../models/quiz_model.dart';
 
 abstract class KatakanaDataSource {
   Future<List<QuizModel>> getMainKana();
-  Future<List<QuizModel>> getDakutenKana();
+  Future<List<QuizModel>> getDakuonKana();
   Future<List<QuizModel>> getCombineKana();
 }
 
@@ -29,9 +29,9 @@ class KatakanaDataSourceImpl implements KatakanaDataSource {
 
   // return list dakuten katakana
   @override
-  Future<List<QuizModel>> getDakutenKana() async {
+  Future<List<QuizModel>> getDakuonKana() async {
     Map<String, dynamic> jsonData = await _loadKatakanaJson();
-    return (jsonData['dakuten_katakana'] as List)
+    return (jsonData['dakuon_katakana'] as List)
         .map((e) => QuizModel.fromJson(e))
         .toList();
   }

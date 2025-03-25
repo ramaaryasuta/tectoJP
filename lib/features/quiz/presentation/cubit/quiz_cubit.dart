@@ -6,9 +6,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../../../core/utils/error.dart';
 import '../../domain/entities/quiz.dart';
-import '../../domain/usecase/get_combine_kana.dart';
-import '../../domain/usecase/get_dakuten_kana.dart';
-import '../../domain/usecase/get_main_kana.dart';
+import '../../domain/usecase/get_kana.dart';
 
 part 'quiz_state.dart';
 
@@ -18,12 +16,12 @@ enum QuizType { main, dakuten, combine, all }
 
 class QuizCubit extends Cubit<QuizState> {
   final GetMainKana getMainKanaUseCase;
-  final GetDakutenKana getDakutenKanaUseCase;
+  final GetDakuonKana getDakuonUseCase;
   final GetCombineKana getCombineKanaUseCase;
 
   QuizCubit(
     this.getMainKanaUseCase,
-    this.getDakutenKanaUseCase,
+    this.getDakuonUseCase,
     this.getCombineKanaUseCase,
   ) : super(QuizInitial());
 
@@ -55,7 +53,7 @@ class QuizCubit extends Cubit<QuizState> {
           await fetchQuizData(() => getMainKanaUseCase.execute(kanaType));
           break;
         case QuizType.dakuten:
-          await fetchQuizData(() => getDakutenKanaUseCase.execute(kanaType));
+          await fetchQuizData(() => getDakuonUseCase.execute(kanaType));
           break;
         case QuizType.combine:
           await fetchQuizData(() => getCombineKanaUseCase.execute(kanaType));
@@ -64,7 +62,7 @@ class QuizCubit extends Cubit<QuizState> {
           // fetch all kana type then add to list
           await Future.wait([
             fetchQuizData(() => getMainKanaUseCase.execute(kanaType)),
-            fetchQuizData(() => getDakutenKanaUseCase.execute(kanaType)),
+            fetchQuizData(() => getDakuonUseCase.execute(kanaType)),
             fetchQuizData(() => getCombineKanaUseCase.execute(kanaType)),
           ]);
           break;

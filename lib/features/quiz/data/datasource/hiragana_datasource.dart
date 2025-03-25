@@ -6,7 +6,7 @@ import '../models/quiz_model.dart';
 
 abstract class HiraganaDataSource {
   Future<List<QuizModel>> getMainKana();
-  Future<List<QuizModel>> getDakutenKana();
+  Future<List<QuizModel>> getDakuonKana();
   Future<List<QuizModel>> getCombineKana();
 }
 
@@ -29,9 +29,9 @@ class HiraganaDataSourceImpl implements HiraganaDataSource {
 
   // return dakuten hiragana only
   @override
-  Future<List<QuizModel>> getDakutenKana() async {
+  Future<List<QuizModel>> getDakuonKana() async {
     Map<String, dynamic> jsonData = await _loadHiraganaJson();
-    return (jsonData['dakuten_hiragana'] as List)
+    return (jsonData['dakuon_hiragana'] as List)
         .map((e) => QuizModel.fromJson(e))
         .toList();
   }
