@@ -35,14 +35,14 @@
         { "kana": "ム", "romaji": "mu" },
         { "kana": "メ", "romaji": "me" },
         { "kana": "モ", "romaji": "mo" },
-        { "kana": "ヤ", "romaji": "ya" },
-        { "kana": "ユ", "romaji": "yu" },
-        { "kana": "ヨ", "romaji": "yo" },
         { "kana": "ラ", "romaji": "ra" },
         { "kana": "リ", "romaji": "ri" },
         { "kana": "ル", "romaji": "ru" },
         { "kana": "レ", "romaji": "re" },
         { "kana": "ロ", "romaji": "ro" },
+        { "kana": "ヤ", "romaji": "ya" },
+        { "kana": "ユ", "romaji": "yu" },
+        { "kana": "ヨ", "romaji": "yo" },
         { "kana": "ワ", "romaji": "wa" },
         { "kana": "ヲ", "romaji": "wo" },
         { "kana": "ン", "romaji": "n" }
@@ -75,15 +75,15 @@
         { "kana": "ポ", "romaji": "po" }
     ], 
     "combination_katakana": [
-        { "kana": "シャ", "romaji": "sha" },
-        { "kana": "シュ", "romaji": "shu" },
-        { "kana": "ショ", "romaji": "sho" },
         { "kana": "キャ", "romaji": "kya" },
         { "kana": "キュ", "romaji": "kyu" },
         { "kana": "キョ", "romaji": "kyo" },
         { "kana": "ギャ", "romaji": "gya" },
         { "kana": "ギュ", "romaji": "gyu" },
         { "kana": "ギョ", "romaji": "gyo" },
+        { "kana": "シャ", "romaji": "sha" },
+        { "kana": "シュ", "romaji": "shu" },
+        { "kana": "ショ", "romaji": "sho" },
         { "kana": "ジャ", "romaji": "ja" },
         { "kana": "ジュ", "romaji": "ju" },
         { "kana": "ジョ", "romaji": "jo" },
@@ -96,5 +96,6 @@
         { "kana": "ヒャ", "romaji": "hya" },
         { "kana": "ヒュ", "romaji": "hyu" },
         { "kana": "ヒョ", "romaji": "hyo" }
+
     ]
 }
